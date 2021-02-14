@@ -75,19 +75,10 @@ var datawisata = <?php echo json_encode($wisata) ?>;
 var baseUrlWisata = <?php echo json_encode(base_url()) ?> + '/wisata/show/';
 var wisataAwal;
 var wisataAkhir;
-
-console.log(baseUrlWisata);
+var routingPlan;
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-var routingcontrol =L.Routing.control({
-    waypoints: [
-        // L.latLng(-7.164, 112.617),
-        // L.latLng(-7.1603854, 112.6543484)
-    ],
-    // routeWhileDragging: false,
 }).addTo(map);
 
 function getWisataAwal(){
@@ -106,12 +97,15 @@ function navigasi() {
     if (wisataAwal == undefined || wisataAkhir == undefined) {
         alert('Isi wisata awal dan wisata akhir');
     }else{
+        if (routingPlan != undefined) {
+            routingPlan.setWaypoints([]);
+        }
+
         var wpAwal = L.Routing.waypoint(L.latLng(wisataAwal.BANGUNAN_LAT, wisataAwal.BANGUNAN_LONG), wisataAwal.BANGUNAN_ID + '_' +wisataAwal.BANGUNAN_NAMA);
         var wpAkhir = L.Routing.waypoint(L.latLng(wisataAkhir.BANGUNAN_LAT, wisataAkhir.BANGUNAN_LONG), wisataAkhir.BANGUNAN_ID + '_' + wisataAkhir.BANGUNAN_NAMA);
         var waypoints = [wpAwal, wpAkhir];
-        // routingcontrol.setWaypoints(waypoints);
 
-        var routingPlan = L.Routing.control({
+        routingPlan = L.Routing.control({
             plan: L.Routing.plan(waypoints, {
                 createMarker: function(i, wp) {
                     if(waypoints[0]) {
@@ -130,8 +124,6 @@ function navigasi() {
             routeWhileDragging: false
           })
         }).addTo(map);
-
-        routingcontrol.setWaypoints([]);
     }
 }
 
