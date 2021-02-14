@@ -24,14 +24,24 @@ class Login extends BaseController
     {
 		$username = $this->request->getVar('username');
 		$password = md5($this->request->getVar('password'));
+		$data = $this->login->checkLogin($username, $password);
 
-		if($this->login->checkLogin($username, $password)){
+		if($data){
+			$session = session();
+			$session->set([
+				'ID'		=> $data['NO'],
+				'USERNAME'	=> $data['USERNAME'],
+			]);
 			return redirect()->to('/admin/dashboard');
 		}else{
 			return redirect()->to('/admin/login');
 		}
     }
 
-	//--------------------------------------------------------------------
+	public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/Home');
+    }
 
 }

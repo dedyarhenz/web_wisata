@@ -10,6 +10,6 @@ class LoginModel extends Model
 	
     public function checkLogin($username, $password)
     {
-        return $this->db->table('tabel_admin')->where('USERNAME', $username)->where('PASSWORD', $password)->get()->getRow();
+        return $this->db->table('tabel_admin')->where('USERNAME', $username)->where('PASSWORD', $password)->get()->getRowArray();
     }
 }

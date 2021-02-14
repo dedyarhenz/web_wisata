@@ -31,8 +31,26 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/admin/login', 'Admin/Login::index');
-$routes->get('/admin/login', 'Admin/Dasboard::index');
+$routes->group('admin', ['filter' => 'ceklogin'], function($routes) {
+	
+	$routes->group('wisata', function($routes) {
+	    $routes->get('/', 'Admin/Wisata::index');
+	    $routes->post('/create', 'Admin/Wisata::create');
+	    $routes->post('/update', 'Admin/Wisata::update');
+	    $routes->delete('/delete', 'Admin/Wisata::delete');
+	});
+
+	$routes->group('wisataimage', function($routes) {
+	    $routes->get('/', 'Admin/WisataImage::image');
+	    $routes->post('/create', 'Admin/WisataImage::create');
+	    $routes->post('/update', 'Admin/WisataImage::update');
+	    $routes->delete('/delete', 'Admin/WisataImage::delete');
+	});
+
+	$routes->group('dashboard', function($routes) {
+	    $routes->get('/', 'Admin/Dashboard::index');
+	});
+});
 
 /**
  * --------------------------------------------------------------------
