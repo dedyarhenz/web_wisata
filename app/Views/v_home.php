@@ -15,7 +15,7 @@
                   <!-- Wrapper for slides -->
                   <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                      <img src="<?php echo base_url('/public/uploads/wisata/t-gresik.jpeg') ?>" alt="..." class="img-fluid" style="background-size: cover;
+                      <img src="<?php echo base_url('/uploads/wisata/t-gresik.jpeg') ?>" alt="..." class="img-fluid" style="background-size: cover;
   background-position: 50% 50%;
   width: 100%;
   height: 50;">
@@ -24,7 +24,7 @@
                       </div>
                     </div>
                     <div class="item">
-                      <img src="<?php echo base_url('/public/uploads/wisata/bg-gresik.jpg') ?>" alt="..." class="img-fluid" style="background-size: cover;
+                      <img src="<?php echo base_url('/uploads/wisata/bg-gresik.jpg') ?>" alt="..." class="img-fluid" style="background-size: cover;
   background-position: 50% 50%;
   width: 100%;
   height: 50;">

@@ -33,8 +33,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?= base_url() ?>/template/js/startmin.js"></script>  
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>/routing_machine/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="<?php echo base_url() ?>/routing_machine/dist/leaflet-routing-machine.js"></script>
 
     </head>
     <body>

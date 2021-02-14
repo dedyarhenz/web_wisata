@@ -16,6 +16,7 @@
                 </div>
                 <?php } ?>
                 <div class="panel panel-default">
+                    <img src="">
                     <div class="panel-heading">
                         <a href="<?php echo base_url('admin/wisataimage/create/' . $wisata_id) ?>" type="button" class="btn btn-primary">Tambah</a>
                     </div>
@@ -25,24 +26,17 @@
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nama Wisata</th>
-                                        <th>Latitude</th>
-                                        <th>Longtitude</th>
-                                        <th>Deskripsi</th>
+                                        <th>Id</th>
+                                        <th>Gambar</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($wisata as $key => $value): ?>
                                         <tr>
-                                            <td><?php echo $value['BANGUNAN_NAMA'] ?></td>
-                                            <td><?php echo $value['BANGUNAN_LAT'] ?></td>
-                                            <td><?php echo $value['BANGUNAN_LONG'] ?></td>
-                                            <td class="center"><?php echo $value['BANGUNAN_DESKRIPSI'] ?></td>
-                                            <td class="center">
-                                                <a href="<?php echo base_url('admin/wisata/update/' . $value['BANGUNAN_ID']) ?>" type="button" class="btn btn-warning">Ubah</a>
-                                                <a href="<?php echo base_url('admin/wisata/delete/'  . $value['BANGUNAN_ID']) ?>" type="button" class="btn btn-danger">Hapus</a>
-                                            </td>
+                                            <td><?php echo $value['ID_GAMBAR']; ?></td>
+                                            <td><img height="100" src="<?php echo base_url() . '/uploads/wisata/' . $value['NAMA_GAMBAR'] ?>"></td>
+                                            <td><a href="<?php echo base_url('admin/wisataimage/delete/' . $wisata_id . '/' . $value['ID_GAMBAR']) ?>" type="button" class="btn btn-danger">Hapus</a></td>
                                         </tr>
                                     <?php endforeach ?>
                                 </tbody>

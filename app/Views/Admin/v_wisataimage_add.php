@@ -15,10 +15,10 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" method="post" action="<?php echo base_url('/admin/wisataimage/create/' . $wisata_id) ?>">
-                                    <div class="form-group" method="post" enctype="multipart/form-data">
+                                <form role="form" method="post" enctype="multipart/form-data" action="<?php echo base_url('/admin/wisataimage/create/' . $wisata_id) ?>">
+                                    <div class="form-group">
                                         <label for="gambar">Gambar Wisata</label>
-                                        <input type="file" class="form-control-file" id="gambar" name="file_upload">
+                                        <input type="file" class="form-control-file" id="gmb_wisata" name="gmb_wisata">
                                     </div>
                                     <button type="submit" class="btn btn-default">Simpan</button>
                                     <a type="reset" class="btn btn-default" href="<?php echo base_url('/admin/wisataimage/' . $wisata_id) ?>">Batal</a>

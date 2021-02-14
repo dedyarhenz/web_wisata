@@ -28,7 +28,7 @@ class Login extends BaseController
 		if($this->login->checkLogin($username, $password)){
 			return redirect()->to('/admin/dashboard');
 		}else{
-			echo "gagal";
+			return redirect()->to('/admin/login');
 		}
     }
 
